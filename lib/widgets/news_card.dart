@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:football_news/screens/menu.dart';
 import 'package:football_news/screens/newslist_form.dart';
+import 'package:football_news/screens/news_entry_list.dart'; // ✅ Tambahkan import ini
 
 class ItemCard extends StatelessWidget {
   // Menampilkan kartu dengan ikon dan nama.
@@ -39,8 +40,14 @@ class ItemCard extends StatelessWidget {
                 builder: (context) => MyHomePage(),
               ),
             );
+          } else if (item.name == "See Football News") { // Tambahkan bagian ini
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const NewsEntryListPage(),
+              ),
+            );
           }
-          // NOTE: "See Football News" tidak perlu navigasi
         },
         child: Container(
           padding: const EdgeInsets.all(8),
